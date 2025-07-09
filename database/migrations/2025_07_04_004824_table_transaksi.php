@@ -11,16 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tempahan', function (Blueprint $table) {
+        Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->morphs('tempahanable');
-            $table->text('tujuan')->nullable();
-            $table->text('destinasi')->nullable();
-            $table->string('pelepasan')->nullable();
-            $table->text('pelepasan_lokasi')->nullable();
-            $table->dateTime('pergi')->nullable();
-            $table->dateTime('balik')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tempahan');
+        Schema::dropIfExists('transaksi');
     }
 };
